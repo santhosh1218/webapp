@@ -1,0 +1,14 @@
+{% extends 'dbapp/home.html'%}
+{% block content %}
+    <h3 class="text-center text-white bg-primary">emp detail</h3>
+    <div class="container mt-1 pt-10">
+    
+        {% for emp in emp %}
+        <h1 class="text-center"> You searched for ..</h1>
+        <h1>{{emp}}{{emp.emp_name}}</h1>
+        <h1>{{emp.emp_salory}}</h1>
+        {% endfor %}
+
+    </div>
+    
+{% endblock %}

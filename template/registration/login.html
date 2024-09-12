@@ -1,0 +1,27 @@
+{% extends 'dbapp/home.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<div class="container-sm border" >
+    <center>
+        <h2 class="text-center text-primary mt-4"> Please Login </h2>
+        <hr>
+    <form action="" method="POST" class="border">
+        {% csrf_token %}
+        <div  class="mb-3 mt-3"> 
+            <label claas="form-label" for="username">UserName</label>
+            <input class="form-data" type="text" name="username" id="username">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+
+        </div>
+        <button class="btn btn-lg btn-outline btn-primary" type="submit">Login</button>
+    </form>
+
+    </center>
+    
+
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'dbapp/home.html' %}
+{% block content %}
+<div class="container-sm mt-3">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-danger" type="submit" value="Delete">
+    </form>
+</div>
+{% endblock %}

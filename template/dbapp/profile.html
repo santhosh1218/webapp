@@ -1,0 +1,29 @@
+{% extends 'dbapp/home.html' %}
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <div class="container mt-3 mb-4">
+        <h2>Profile  Info</h2>
+       <form class="col justify-content-center" action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>
+                    {{u_form.label}}
+                </td>
+                <td>
+                    {{u_form}}
+                </td>
+            </tr>
+            <tr>
+                <td>{{p_form.label}}</td>
+                <td>{{p_form}}</td>
+            </tr>
+        </table>
+        <input class="btn btn-outline btn-primary" type="submit" value="Update">
+       </form>
+    </div>
+    {% endif %}
+
+
+{% endblock %}

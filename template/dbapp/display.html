@@ -1,0 +1,45 @@
+{% extends 'dbapp/home.html'%}
+{% block content %}
+    <h3 class="text-center text-white bg-info">All the Employee Details </h3>
+    <div class="container mt-1 pt-10">
+        <table class="table table-bordered" align="center">
+            <thead>
+                <th>Employe ID</th>
+                <th>Employee Name</th>
+                <th>Employee Solory</th>
+                <th>Employe Address</th>
+                <th>Employe Department</th>
+                <th>Employe Modify</th>
+            </thead>
+            <tbody>
+            {% for emp in emp %}
+            <tr>
+                <td>{{emp.id}}</td>
+                <td>{{emp.emp_name}}</td>
+                <td>{{emp.emp_salory}}</td>
+                <td>{{emp.emp_address}}</td>
+                <td>{{emp.emp_dept}}</td>
+                <td><a href="{% url 'dbapp:empdelete' emp.id %}">Delete</a>
+                    <a href="{% url 'dbapp:empupdate' emp.id %}">Update</a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+
+
+        </table>
+
+    </div>
+    <div>
+        {% if emp.has_previous %}
+        <center><a href="{% url 'dbapp:display' emp.previous_page_number %}">Prev</a>
+            <span>Current:{{emp.number}}</span>
+        </center>
+        {% endif %}
+      
+        {% if emp.has_next %}
+        <center><a href="{% url 'dbapp:display' emp.next_page_number %}">Next</a></center>
+        {% endif %}
+    </div>
+    
+{% endblock %}
